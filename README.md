@@ -161,8 +161,12 @@ dataset/
 
 - 🌐 [CodSoft Website](https://www.codsoft.in)
 - 💼 [LinkedIn](https://www.linkedin.com) — tag @CodSoft with #codsoft
-- 📁 [Task Submission Form](https://forms.gle/bDEXL1khDxx41oWg8)
-
 ---
 
-*Built with ❤️ as part of the CodSoft AI Internship — April 2026*
+## Contact
+
+- **Developer**: D Mohammad Abdulla
+- **Email**: mohammadabdulla20march@gmail.com
+- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/mohammad-abdulla-doodakula-8a3307258/)
+- **GitHub**: [Your GitHub Profile](https://github.com/Abdulla-1234)
+---
