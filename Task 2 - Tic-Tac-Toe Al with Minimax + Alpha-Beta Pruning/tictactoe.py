@@ -20,11 +20,11 @@ def make_board():
 def print_board(board):
     os.system("cls" if os.name == "nt" else "clear")
     print("\n  Tic-Tac-Toe  |  You: X   AI: O\n")
-    print(f"  {board[0]} | {board[1]} | {board[2]}      7 | 8 | 9")
+    print(f"  {board[0]} | {board[1]} | {board[2]}      1 | 2 | 3")
     print("  ---------      ---------")
     print(f"  {board[3]} | {board[4]} | {board[5]}      4 | 5 | 6")
     print("  ---------      ---------")
-    print(f"  {board[6]} | {board[7]} | {board[8]}      1 | 2 | 3\n")
+    print(f"  {board[6]} | {board[7]} | {board[8]}      7 | 8 | 9\n")
 
 def available_moves(board):
     return [i for i, v in enumerate(board) if v == EMPTY]
