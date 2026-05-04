@@ -1,4 +1,4 @@
-# 🤖 CODSOFT — AI Internship Tasks
+# CODSOFT — AI Internship Tasks
 
 **Intern:** Doodakula Mohammad Abdulla  
 **Batch:** April 2026 · B93  
