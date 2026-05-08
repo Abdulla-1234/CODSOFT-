@@ -16,7 +16,6 @@ Usage:
     python face_detection.py train     --dataset ./dataset   # build recognizer
     python face_detection.py recognize --input photo.jpg     # ID faces
 """
-
 import argparse
 import os
 import sys
@@ -33,8 +32,7 @@ HAAR_EYE     = cv2.data.haarcascades + "haarcascade_eye.xml"
 MODEL_PATH   = "face_model.yml"
 LABELS_PATH  = "face_labels.txt"
 
-DETECT_PARAMS = dict(scaleFactor=1.1, minNeighbors=5, minSize=(60, 60))
-
+DETECT_PARAMS = dict(scaleFactor=1.05, minNeighbors=3, minSize=(30, 30))
 
 # ─── Detector ─────────────────────────────────────────────────────────────────
 
@@ -167,21 +165,30 @@ def mode_detect(args):
 
 
 def mode_webcam(args):
-    detector = FaceDetector()
+    rec = FaceRecognizer()
+    try:
+        rec.load()  # Load the face_model.yml you just trained
+    except FileNotFoundError:
+        sys.exit("❌ Model not found. Run 'train' mode first.")
+
     cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         sys.exit("❌ Cannot open webcam.")
 
-    print("📷 Live detection running… Press 'q' to quit.")
+    print("📷 Live recognition running… Press 'q' to quit.")
     while True:
         ret, frame = cap.read()
         if not ret:
             break
-        faces = detector.detect(frame)
-        frame = detector.draw_faces(frame, faces)
-        cv2.putText(frame, f"Faces: {len(faces)}", (10, 30),
+        
+        # Use the recognize method instead of draw_faces
+        annotated_frame, faces = rec.recognize(frame)
+        
+        cv2.putText(annotated_frame, f"Faces: {len(faces)}", (10, 30),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 0), 2)
-        cv2.imshow("Face Detection — CodSoft AI", frame)
+        
+        cv2.imshow("Face Recognition — CodSoft AI", annotated_frame)
+        
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
